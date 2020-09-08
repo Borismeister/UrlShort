@@ -1,0 +1,22 @@
+{
+  "name": "urlshort",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "tailwindcss": "^1.8.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "echo \"Starting Build\" && npm run build:css",
+    "build:css": "npx tailwindcss build ./src/main.css -o ./public/styles.css",
+    "dev": "nodemon main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
