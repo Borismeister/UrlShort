@@ -10,7 +10,7 @@ $(document).ready(function(){
     axios(request).then(function(response){
 
       //Display result on webpage
-      $("#result").html('url.shrt/'+response.data.url)
+      $("#result").html('localhost:4000/'+response.data.url)
     }).catch(function(err){
       $("#result").html(err)
     })

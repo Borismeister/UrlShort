@@ -34,9 +34,6 @@ app.get('/generate', (req, res)=>{
   
   client
   .query(text, values)
-  .then(res => {
-    console.log(res)
-  })
   .catch(e => console.error(e.stack))
   res.json({
     url: short
@@ -50,7 +47,6 @@ app.get('/:short', (req, res)=>{
 
   client.query(text, values)
     .then(resp => {
-      console.log(resp.rows[0].long)
       // res.json({
       //   short: req.params.short,
       //   long: resp.rows[0].long
