@@ -11,6 +11,8 @@ $(document).ready(function(){
 
       //Display result on webpage
       $("#result").html('url.shrt/'+response.data.url)
+    }).catch(function(err){
+      $("#result").html(err)
     })
 
 
