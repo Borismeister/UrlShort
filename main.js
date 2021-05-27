@@ -53,6 +53,4 @@ app.get('/:short', (req, res)=>{
     .catch(e => console.error(e.stack))
 })
 
-app.listen('4000', ()=>{
-  console.log("Listening on port 4000")
-})
+app.listen()
