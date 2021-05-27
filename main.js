@@ -53,4 +53,4 @@ app.get('/:short', (req, res)=>{
     .catch(e => console.error(e.stack))
 })
 
-app.listen()
+app.listen(3000)
