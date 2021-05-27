@@ -10,7 +10,7 @@ $(document).ready(function(){
     axios(request).then(function(response){
 
       //Display result on webpage
-      $("#result").html('htpps:/www.micro-url.com/'+response.data.url)
+      $("#result").html('micro-url.com/'+response.data.url)
     }).catch(function(err){
       $("#result").html(err)
     })
