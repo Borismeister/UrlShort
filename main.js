@@ -5,11 +5,7 @@ const morgan = require('morgan')
 const { Client } = require('pg');
 
 const client = new Client({
-    user: 'Max',
-    host: 'localhost',
-    database: 'urls',
-    password: 'pass1234',
-    port: 5432,
+  connectionString: 'postgres://whshytkh:9ENGrZYYjqVH0Xd7u-ELpF8y22jxp83K@rosie.db.elephantsql.com/whshytkh'
 });
 
 client.connect();
@@ -28,9 +24,10 @@ app.get('/generate', (req, res)=>{
   let short = getrandom()
   let long = req.query.url;
   let time = new Date().getTime();
+  let d = new Date(time + 259200000);
 
   const text = `insert into short_urls(short, long, time_to_delete) values($1, $2, $3)`;
-  const values = [short, long, time + 259200000];
+  const values = [short, long, d];
   
   client
   .query(text, values)

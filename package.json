@@ -11,9 +11,8 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "pg": "^8.3.3",
-    "tailwindcss": "^1.8.5"
+    "tailwindcss": "^2.1.2"
   },
-  "devDependencies": {},
   "scripts": {
     "build": "echo \"Starting Build\" && npm run build:css",
     "build:css": "npx tailwindcss build ./src/main.css -o ./public/styles.css",
