@@ -15,19 +15,18 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('combined'))
 
-function getrandom(){
-  let random_string = Math.random().toString(32).substring(2, 5) + Math.random().toString(32).substring(2, 4);
-  return random_string
+function getRandom(){
+  return Math.random().toString(32).substring(2, 5) + Math.random().toString(32).substring(2, 4);
 }
 
 app.get('/generate', (req, res)=>{
-  let short = getrandom()
+  let short = getRandom()
   let long = req.query.url;
   let time = new Date().getTime();
-  let d = new Date(time + 259200000);
+  let date = new Date(time + 259200000);
 
   const text = `insert into short_urls(short, long, time_to_delete) values($1, $2, $3)`;
-  const values = [short, long, d];
+  const values = [short, long, date];
   
   client
   .query(text, values)
@@ -43,13 +42,7 @@ app.get('/:short', (req, res)=>{
   let values = [req.params.short]
 
   client.query(text, values)
-    .then(resp => {
-      // res.json({
-      //   short: req.params.short,
-      //   long: resp.rows[0].long
-      // })
-      res.redirect(resp.rows[0].long)
-    })
+    .then(resp => res.redirect(resp.rows[0].long))
     .catch(e => console.error(e.stack))
 })
 
